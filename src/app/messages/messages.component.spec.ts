@@ -1,21 +1,17 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed } from '@angular/core/testing';
 import { MessagesComponent } from './messages.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HeroService } from '../hero.service';
 
 describe('MessagesComponent', () => {
-  let component: MessagesComponent;
-  let fixture: ComponentFixture<MessagesComponent>;
-
-  beforeEach(() => {
+  it('should create the component', () => {
     TestBed.configureTestingModule({
-      declarations: [MessagesComponent]
+      imports: [HttpClientModule],
+      declarations: [MessagesComponent],
+      providers: [HeroService],
     });
-    fixture = TestBed.createComponent(MessagesComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
+    const fixture = TestBed.createComponent(MessagesComponent);
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });

@@ -1,21 +1,17 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed } from '@angular/core/testing';
 import { HeroesComponent } from './heroes.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HeroService } from '../hero.service';
 
 describe('HeroesComponent', () => {
-  let component: HeroesComponent;
-  let fixture: ComponentFixture<HeroesComponent>;
-
-  beforeEach(() => {
+  it('should create the component', () => {
     TestBed.configureTestingModule({
-      declarations: [HeroesComponent]
+      imports: [HttpClientModule],
+      declarations: [HeroesComponent],
+      providers: [HeroService],
     });
-    fixture = TestBed.createComponent(HeroesComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
+    const fixture = TestBed.createComponent(HeroesComponent);
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });

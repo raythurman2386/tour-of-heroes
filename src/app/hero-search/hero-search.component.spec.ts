@@ -1,21 +1,18 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed } from '@angular/core/testing';
 import { HeroSearchComponent } from './hero-search.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HeroService } from '../hero.service';
 
 describe('HeroSearchComponent', () => {
-  let component: HeroSearchComponent;
-  let fixture: ComponentFixture<HeroSearchComponent>;
-
-  beforeEach(() => {
+  it('should create the component', () => {
     TestBed.configureTestingModule({
-      declarations: [HeroSearchComponent]
+      imports: [HttpClientModule],
+      declarations: [HeroSearchComponent],
+      providers: [HeroService],
     });
-    fixture = TestBed.createComponent(HeroSearchComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
 
-  it('should create', () => {
+    const fixture = TestBed.createComponent(HeroSearchComponent);
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
-  });
+  })
 });

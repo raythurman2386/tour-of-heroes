@@ -1,21 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed } from '@angular/core/testing';
 import { DashboardComponent } from './dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HeroService } from '../hero.service';
+import { HeroSearchComponent } from '../hero-search/hero-search.component';
+
 
 describe('DashboardComponent', () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
-
-  beforeEach(() => {
+  // Correctly placed it block inside describe
+  it('should create the component', () => {
     TestBed.configureTestingModule({
-      declarations: [DashboardComponent]
+      imports: [HttpClientModule],
+      declarations: [DashboardComponent, HeroSearchComponent],
+      providers: [HeroService],
     });
-    fixture = TestBed.createComponent(DashboardComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
+    const fixture = TestBed.createComponent(DashboardComponent);
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
+
 });
