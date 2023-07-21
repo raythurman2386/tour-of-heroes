@@ -1,6 +1,5 @@
 import { TestBed, tick, fakeAsync } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { of } from 'rxjs';
 import { HeroService } from './hero.service';
 import { MessageService } from './message.service';
 import { Hero } from './Hero';
